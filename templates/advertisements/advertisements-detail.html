@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ advertisement.name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ advertisement.name }}</h1>
+    <p><strong>Продукт:</strong> {{ advertisement.product.name }}</p>
+    <p><strong>Канал:</strong> {{ advertisement.channel }}</p>
+    <p><strong>Бюджет:</strong> {{ advertisement.budget }}</p>
+    <a href="{% url 'advertisements:advertisement_edit' advertisement.pk %}" class="btn btn-secondary">Редактировать</a>
+    <a href="{% url 'advertisements:advertisement_delete' advertisement.pk %}" class="btn btn-danger">Удалить</a>
+    <a href="{% url 'advertisements:advertisement_list' %}" class="btn btn-link">Назад к списку</a>
+</div>
+{% endblock %}

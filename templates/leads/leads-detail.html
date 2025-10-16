@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ lead.name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ lead.name }}</h1>
+    <p><strong>Email:</strong> {{ lead.email }}</p>
+    <p><strong>Телефон:</strong> {{ lead.phone }}</p>
+    <p><strong>Статус:</strong> {{ lead.status }}</p>
+    <p><strong>Реклама:</strong> {{ lead.advertisement.name }}</p>
+    <a href="{% url 'leads:lead_edit' lead.pk %}" class="btn btn-secondary">Редактировать</a>
+    <a href="{% url 'leads:lead_delete' lead.pk %}" class="btn btn-danger">Удалить</a>
+    <a href="{% url 'leads:lead_to_customer' lead.pk %}" class="btn btn-success">В клиента</a>
+    <a href="{% url 'leads:lead_list' %}" class="btn btn-link">Назад к списку</a>
+</div>
+{% endblock %}

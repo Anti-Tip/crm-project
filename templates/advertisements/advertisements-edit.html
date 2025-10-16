@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Редактировать рекламу{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Редактировать рекламу</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+    <a href="{% url 'advertisements:advertisement_detail' advertisement.pk %}" class="btn btn-link">Отмена</a>
+</div>
+{% endblock %}
